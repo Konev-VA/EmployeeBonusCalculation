@@ -32,9 +32,9 @@ namespace employeeBonus
         private void search_Click(object sender, EventArgs e)
         {
             query = "SELECT * FROM employees WHERE id = " + searchInput;
-            Update(query, db);
+            Update(query);
         }
-        public void Update(string query, DataBase db)
+        public void Update(string query)
         {
             fio.Text = null;
             MySqlCommand command = new MySqlCommand(query, db.GetConnection());
@@ -63,6 +63,62 @@ namespace employeeBonus
                 {
                     dataReader.Close();
                 }
+            }
+        }
+
+        private void previous_Click(object sender, EventArgs e)
+        {
+            if (currentID > 1)
+            {
+                currentID--;
+                query = "SELECT * FROM employees WHERE id = " + currentID;
+                Update(query);
+            }
+            else
+            {
+                Form errorMessage = new Form();
+                errorMessage.Text = "ВНИМАНИЕ";
+                errorMessage.ShowDialog();
+            }
+        }
+
+        private void next_Click(object sender, EventArgs e)
+        {
+            int maxId = 0;
+            MySqlCommand command = new MySqlCommand("SELECT MAX(id) FROM employees", db.GetConnection());
+            db.OpenConnection();
+            MySqlDataReader dataReader = null;
+            try
+            {
+                dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    maxId = Convert.ToInt32(dataReader.GetValue(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+            }
+            
+            if (currentID < maxId)
+            {
+                currentID++;
+                query = "SELECT * FROM employees WHERE id = " + currentID;
+                Update(query);
+            }
+            else
+            {
+                Form errorMessage = new Form();
+                errorMessage.Text = "ВНИМАНИЕ";
+                errorMessage.ShowDialog();
             }
         }
     }

@@ -101,6 +101,7 @@
             this.previous.TabIndex = 6;
             this.previous.Text = "<<";
             this.previous.UseVisualStyleBackColor = true;
+            this.previous.Click += new System.EventHandler(this.previous_Click);
             // 
             // next
             // 
@@ -111,6 +112,7 @@
             this.next.TabIndex = 7;
             this.next.Text = ">>";
             this.next.UseVisualStyleBackColor = true;
+            this.next.Click += new System.EventHandler(this.next_Click);
             // 
             // fio
             // 
