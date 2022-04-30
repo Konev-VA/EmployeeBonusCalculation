@@ -65,6 +65,7 @@
             this.search.TabIndex = 2;
             this.search.Text = "🔍";
             this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // label1
             // 
@@ -75,7 +76,6 @@
             this.label1.Size = new System.Drawing.Size(147, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "СУММА ПРЕМИИ: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // bonusValue
             // 
