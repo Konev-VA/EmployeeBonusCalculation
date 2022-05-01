@@ -42,6 +42,8 @@ namespace employeeBonus
         public void Update(string query)
         {
             fio.Text = null;
+            dolzhnost.Text = null;
+            bonusValue.Text = null;
             MySqlCommand command = new MySqlCommand(query, db.GetConnection());
             db.OpenConnection();
             MySqlDataReader dataReader = null;
@@ -56,7 +58,7 @@ namespace employeeBonus
                         fio.Text += " ";
                     }
                     dolzhnost.Text = dataReader.GetValue(4).ToString();
-                    salaryBonus = Convert.ToDouble(dataReader.GetValue(5)) * hourBonus + Convert.ToDouble(dataReader.GetValue(7)) * (Convert.ToDouble(dataReader.GetValue(6)) / 100);
+                    salaryBonus = (Convert.ToDouble(dataReader.GetValue(5)) * hourBonus + Convert.ToDouble(dataReader.GetValue(7)) * (Convert.ToDouble(dataReader.GetValue(6)) / 100))- Convert.ToDouble(dataReader.GetValue(7));
                     bonusValue.Text = salaryBonus.ToString();
                 }
             }
