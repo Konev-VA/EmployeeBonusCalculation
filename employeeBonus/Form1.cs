@@ -13,16 +13,17 @@ namespace employeeBonus
 {
     public partial class Form1 : Form
     {
-        public static int currentID;
+        public static int currentID = 0;
+        public static double hourBonus = 500;
+        public static double salaryBonus;
         public static string query;
         public static string searchInput;
-        public static float hourMultiplier;
+        public static string[] splitSearch = null;
         DataBase db = new DataBase();
 
         public Form1()
         {
             InitializeComponent();
-            currentID = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -31,7 +32,11 @@ namespace employeeBonus
         }
         private void search_Click(object sender, EventArgs e)
         {
-            query = "SELECT * FROM employees WHERE id = " + searchInput;
+            splitSearch = searchInput.Split();
+            if (splitSearch.Length > 1)
+                query = String.Format("SELECT * FROM employees.employees WHERE lname = \"{0}\" AND fname = \"{1}\" AND mname = \"{2}\"", splitSearch[0], splitSearch[1], splitSearch[2] );
+            else
+                query = "SELECT * FROM employees WHERE id = " + searchInput;
             Update(query);
         }
         public void Update(string query)
@@ -51,6 +56,8 @@ namespace employeeBonus
                         fio.Text += " ";
                     }
                     dolzhnost.Text = dataReader.GetValue(4).ToString();
+                    salaryBonus = Convert.ToDouble(dataReader.GetValue(5)) * hourBonus + Convert.ToDouble(dataReader.GetValue(7)) * (Convert.ToDouble(dataReader.GetValue(6)) / 100);
+                    bonusValue.Text = salaryBonus.ToString();
                 }
             }
             catch (Exception ex)
@@ -60,9 +67,7 @@ namespace employeeBonus
             finally
             {
                 if (dataReader != null && !dataReader.IsClosed)
-                {
                     dataReader.Close();
-                }
             }
         }
 
@@ -103,9 +108,7 @@ namespace employeeBonus
             finally
             {
                 if (dataReader != null && !dataReader.IsClosed)
-                {
                     dataReader.Close();
-                }
             }
             
             if (currentID < maxId)
