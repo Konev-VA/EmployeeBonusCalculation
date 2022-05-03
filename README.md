@@ -15,11 +15,11 @@
 3. Более гибкое подведение расчетов, учет большего количества показателей.
 
 ## Demo
-**Окно программы при запуске**
+**Окно программы при запуске**<br>
 Уже отведены места для фотографии и детализации.
 ![startScreen](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/startScreen.png)
-**База данных**
+**База данных** <br>
 ![DataBase](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/DB_screenshot.png)
-**Демонстрация работы**
+**Демонстрация работы** <br>
 Как видно, работает поиск по ID и по ФИО без доп. кнопок.
 ![demo](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/demo.gif)
