@@ -12,3 +12,5 @@
 2. Экспорт данных в файл и/или базу данных;
 3. Вывод фотографии работника;
 3. Более гибкое подведение расчетов, учет большего количества показателей.
+
+![DataBase](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/DB_screenshot.png)
