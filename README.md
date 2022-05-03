@@ -16,10 +16,10 @@
 
 ## Demo
 **Окно программы при запуске**<br>
-Уже отведены места для фотографии и детализации.
-![startScreen](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/startScreen.png)
+Уже отведены места для фотографии и детализации.<br>
+![startScreen](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/startScreen.png) <br>
 **База данных** <br>
-![DataBase](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/DB_screenshot.png)
+![DataBase](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/DB_screenshot.png) <br>
 **Демонстрация работы** <br>
-Как видно, работает поиск по ID и по ФИО без доп. кнопок.
+Как видно, работает поиск по ID и по ФИО без доп. кнопок.<br>
 ![demo](https://github.com/Konev-VA/EmployeeBonusCalculation/raw/master/image/demo.gif)
